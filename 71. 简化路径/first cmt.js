@@ -1,0 +1,36 @@
+/**
+ 给你一个字符串 path ，表示指向某一文件或目录的 Unix 风格 绝对路径 （以 '/' 开头），请你将其转化为更加简洁的规范路径。
+ 示例 1：
+输入：path = "/home/"
+输出："/home"
+解释：注意，最后一个目录名后面没有斜杠。 
+
+示例 2：
+输入：path = "/../"
+输出："/"
+解释：从根目录向上一级是不可行的，因为根目录是你可以到达的最高级。
+
+示例 3：
+输入：path = "/home//foo/"
+输出："/home/foo"
+解释：在规范路径中，多个连续斜杠需要用一个斜杠替换。
+
+示例 4：
+输入：path = "/a/./b/../../c/"
+输出："/c"
+ * @param {string} path
+ * @return {string}
+思路：一个点表示同级可以直接忽略, 两个点表示往前翻一层也就是pop
+ */
+var simplifyPath = function(path) {
+    let stack = []
+    let arr = path.split('/')
+    for (let item of arr) {
+        if (item == '..') {
+            stack.pop()
+        } else if (item && item !== '.') {
+            stack.push(item)
+        }
+    }
+    return '/' + stack.join('/')
+};
