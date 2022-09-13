@@ -18,3 +18,5 @@ var rob = function(nums) {
     }
     return s[i - 1]
 };
+
+//同样可以用动态数组来优化存储空间
