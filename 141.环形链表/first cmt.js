@@ -31,3 +31,14 @@ var hasCycle = function(head) {
     }
     return false
 };
+// 利用缓存的方法
+var hasCycle = function(head) {
+    if (head == null || head.next == null) return false
+        //缓存方法，每次遍历都把当前节点用Set缓存下来，并判断Set中是否已经存在当前节点
+    let cache = new Set()
+    while (head) {
+        if (cache.has(head)) { return true } else { cache.add(head) }
+        head = head.next
+    }
+    return false
+};
