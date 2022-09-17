@@ -15,19 +15,19 @@
 解题思路：利用前面最小深度和层序遍历的经验，直接暴力层序遍历，最后返沪结果的数组长度即为最大深度
  */
 var maxDepth = function(root) {
-    if(!root) return 0
+    if (!root) return 0
     let stack = [root]
     let ans = []
-    while(stack.length){
+    while (stack.length) {
         let count = stack.length
-        while(count--){
-            var temArr=[]    
+        while (count--) {
+            var temArr = []
             let temRoot = stack.shift()
             temArr.push(temRoot.val)
-            if(temRoot.left) stack.push(temRoot.left)
-            if(temRoot.right) stack.push(temRoot.right)
+            if (temRoot.left) stack.push(temRoot.left)
+            if (temRoot.right) stack.push(temRoot.right)
         }
-    ans.push(temArr)
+        ans.push(temArr)
     }
     return ans.length
 };
@@ -35,18 +35,26 @@ var maxDepth = function(root) {
 //这个思路可以优化内存，不需要把结果存下来，直接定义一个depth记录深度即可，每循环一次就深度加1
 
 var maxDepth = function(root) {
-    if(!root) return 0
+    if (!root) return 0
     let stack = [root]
     let depth = 0 //深度
-    while(stack.length){
+    while (stack.length) {
         let count = stack.length
-        //每循环一层就让深度加1，可以大大优化内存
+            //每循环一层就让深度加1，可以大大优化内存
         depth++
-        while(count--){
+        while (count--) {
             let temRoot = stack.shift()
-            if(temRoot.left) stack.push(temRoot.left)
-            if(temRoot.right) stack.push(temRoot.right)
+            if (temRoot.left) stack.push(temRoot.left)
+            if (temRoot.right) stack.push(temRoot.right)
         }
     }
     return depth
 };
+
+var maxDepth = function(root) {
+    // 用递归的方法：先推导：
+    // 然后是终止条件，不然的会一直无限递归
+    if (!root) return 0
+        // 树的最大深度，等于左右两个子树最大的深度+1
+    return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
+}
