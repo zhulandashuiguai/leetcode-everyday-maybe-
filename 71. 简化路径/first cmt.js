@@ -21,6 +21,7 @@
  * @param {string} path
  * @return {string}
 思路：一个点表示同级可以直接忽略, 两个点表示往前翻一层也就是pop
+初始化一个栈，对路径进行split('/'),然后遍历，遇到字母就push，遇到‘.’啥也不干，遇到'..'就pop循环就行
  */
 var simplifyPath = function(path) {
     let stack = []
