@@ -56,3 +56,30 @@ var mergeTwoLists = function(list1, list2) {
         return l2
     }
 };
+
+// 迭代，或者双指针法
+var mergeTwoLists = function(list1, list2) {
+    //迭代法,定义一个头节点，两个指针指向两个链表
+    //对两个链表进行双指针的一个比较，哪边小，就让头指针指向那边，并且，小的那边往后移，头节点也向后移
+    //合并到最后有至少一个链表没有合并完，判断并指向即可
+    let head = new ListNode(0)
+    let prev = head
+    let l1 = list1
+    let l2 = list2
+
+    while (l1 && l2) {
+        if (l1.val < l2.val) {
+            prev.next = l1
+            l1 = l1.next
+            prev = prev.next
+        } else {
+            prev.next = l2
+            l2 = l2.next
+            prev = prev.next
+        }
+    }
+    if (l1 == null && l2 !== null) prev.next = l2
+    if (l2 == null && l1 !== null) prev.next = l1
+
+    return head.next
+};
