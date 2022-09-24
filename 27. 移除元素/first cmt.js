@@ -25,3 +25,20 @@ var removeElement = function(nums, val) {
     nums.sort((a, b) => a - b)
     return nums.indexOf(max)
 };
+
+// 双指针思路
+var removeElement = function(nums, val) {
+    // 边界条件
+    if (!nums.includes(val)) return nums.length
+        // 双指针思路，定义两个指针，j指针用来赋值，i指针用来遍历，每次都比较i指向的值，如果i指向的值为val，什么也不做，如果i指的值不是val，让j指向的值赋为i指向的值
+    let j = 0
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] == val) {
+            continue
+        } else {
+            nums[j] = nums[i]
+            j++
+        }
+    }
+    return j
+};
