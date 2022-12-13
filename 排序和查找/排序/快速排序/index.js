@@ -1,3 +1,5 @@
+//快排时间复杂度：
+
 let arr = [2, 3, 8, 5, 1, 4, 9, 7, 6]
 
 function quickSort(arr) {

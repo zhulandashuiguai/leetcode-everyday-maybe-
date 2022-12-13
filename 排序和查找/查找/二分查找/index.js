@@ -1,4 +1,4 @@
-let arr = [2,4,5,6,7,8,12,35,57,65,68] 
+let arr = [2,4,5,6,7,8,12,35,57,65,68]; 
 
 function BinarySerach (arr,target) {
   // low,high两个指针指向头和尾
@@ -16,7 +16,7 @@ function BinarySerach (arr,target) {
       low=mid+1
     }  
   }
-  // 未满足以上条件则表明查找失败
+  // 跳出循环表示low>high，未满足以上条件则表明查找失败
   return -1
 }
 console.log(
