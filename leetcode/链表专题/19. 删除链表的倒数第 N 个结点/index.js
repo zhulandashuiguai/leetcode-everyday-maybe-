@@ -26,5 +26,5 @@
         slow=slow.next
     }
     slow.next=slow.next.next //删除
-    return dummyHead.next /返回头节点
+    return dummyHead.next //返回头节点
 };
