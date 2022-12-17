@@ -16,7 +16,7 @@
     let count = 0
     nums1.forEach(item1=>{
         nums2.forEach(item2=>{
-            obj.set(item1+item2,(obj.get(item1+item2)||0) +1)
+            obj.set(item1+item2,(obj.get(item1+item2) ||0) +1)
         })
     })
     nums3.forEach(item3=>{

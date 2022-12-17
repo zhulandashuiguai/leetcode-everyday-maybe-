@@ -17,7 +17,7 @@
 var twoSum = function(nums, target) {
     let map = new Map()
     for(let i=0;i<nums.length;i++){
-        let num = target-nums[i]
+        let num = target-nums[i] //要找的数
         if(map.has(num)){
             return [map.get(num),i]
         }else{
