@@ -41,3 +41,20 @@ var inorderTraversal = function(root) {
     }
     return arr
 };
+// 迭代写法
+var inorderTraversal = function(root) {
+    let cur = root;  //定义指针指向根节点
+    let stack = [];  //临时栈
+    let res = [];    //结果数组
+    while(cur!==null || stack.length) {  //当指针不为空，或者栈长度不为0时
+        if(cur!==null){       //如果指针不为空，表示当前有节点
+            stack.push(cur)   //入栈
+            cur=cur.left      //指向左节点
+        } else{               //如果为空，表明已经把左节点加完了
+            cur = stack.pop();  //弹出节点，让指针指向
+            res.push(cur.val)   //处理节点
+            cur = cur.right     //让指针指向右节点，左节点访问之后访问右节点
+        }
+    }
+    return res
+};

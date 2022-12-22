@@ -17,7 +17,6 @@
 思路： 利用递归，先判断两个棵树是否同时到达终点，再判断值是否不相等，只能先判断不相等。再递归判断左右节点即可
  */
 var isSameTree = function(p, q) {
-    if(!p&&!q) return true
     //利用递归
     //如果同时到达终点
     if(p==null&&q==null) return true 

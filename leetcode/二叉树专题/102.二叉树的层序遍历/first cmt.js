@@ -36,3 +36,23 @@ var levelOrder = function(root) {
     }
     return result
 };
+
+// 
+var levelOrder = function(root) {
+    if(!root) return [] //边界条件
+    let queue = [root]
+    let res = []
+    while(queue.length){
+        let size = queue.length;
+        let temArr = []
+        while(size--){
+            //队头出队
+            let tem = queue.shift() 
+            temArr.push(tem.val)
+            if(tem.left) queue.push(tem.left)
+            if(tem.right) queue.push(tem.right)
+        }
+        res.push(temArr)
+    }
+    return res
+};
