@@ -21,9 +21,8 @@ var isSameTree = function(p, q) {
     //如果同时到达终点
     if(p==null&&q==null) return true 
     //未同时到达终点,即只有一个条件为true
-    if(p==null||q==null) return false
+    if(p==null||q==null||p.val!==q.val) return false
     //上面两个条件都没有达到就判断值是否不相等
     //只能判断不相等，否则只要有一个相等就return true了
-    if(p.val!==q.val) return false
     return isSameTree(p.left,q.left)&&isSameTree(p.right,q.right)
 };

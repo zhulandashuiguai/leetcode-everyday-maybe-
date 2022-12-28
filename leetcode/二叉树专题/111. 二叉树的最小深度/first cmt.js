@@ -34,3 +34,13 @@ var minDepth = function(root) {
     }
     return -1
 };
+
+// 递归
+var minDepth = function(root) {
+    if(!root) return 0
+    let leftH =Number.MAX_VALUE,rightH=Number.MAX_VALUE;
+    if(!root.left&&!root.right) return 1 //没有子节点返回1
+    if(root.left) leftH = minDepth(root.left) //记录左节点最小高度
+    if(root.right) rightH = minDepth(root.right) //记录右节点最新高度
+    return Math.min(leftH,rightH)+1  //最小高度为左右节点中最小的那个+1
+};
