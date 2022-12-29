@@ -35,8 +35,7 @@ var preorderTraversal = function(root) {
 var preorderTraversal = function(root) {   
     if(!root) return []
     let num=[]
-    let stack=[]
-    stack.push(root)
+    let stack=[root]
     while(stack.length){
         let o = stack.pop()
         num.push(o.val)
