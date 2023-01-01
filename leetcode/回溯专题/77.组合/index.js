@@ -39,7 +39,7 @@ var combine = function(n, k) {
     }
     backTracking(n, k, 1)
     return res
-};
+}; 
 
 // 剪枝操作：如果n=4，k=4，那么算法里的循环，除了1开始的，之后的都是没有必要的，减去分支以提高效率
 // 剪枝从循环中的i<=n开始操作，缩小i的范围即可实现剪枝，只需要让i小于最大的有效范围即可
@@ -54,3 +54,24 @@ for (let i = startIndex; i <= n - (k - tem.length) + 1; i++) {
         // 回溯  
     tem.pop()
 }
+
+// 刷题记录，2022，12.31
+var combine = function(n, k) {
+    let res = []
+    let tem = []
+    function backtrack(n,k){
+        if(tem.length==k){
+           return res.push([...tem])
+        }
+
+        for(let i =1;i<=n;i++){
+            if(i>(tem[tem.length-1]||0)&&!tem.includes(i)){
+                tem.push(i)
+                backtrack(n,k)
+                tem.pop()
+            }
+        }
+    }
+    backtrack(n,k)
+    return res 
+};
