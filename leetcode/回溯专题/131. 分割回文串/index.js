@@ -25,14 +25,14 @@ var partition = function(s) {
         if (startIndex >= s.length) {
             // 这里要拷贝字符串数据
             res.push(JSON.parse(JSON.stringify(tem)))
-            return
+             return
         }
         for (let i = startIndex; i < s.length; i++) {
             let char = s.slice(startIndex, i + 1)
             if (ishuiwen(char)) {
                 tem.push(char)
-            } else {
-                continue
+            } else { 
+                continue //不是回文串就跳到下一次循环
             }
             backTracking(s, i + 1)
             tem.pop()
@@ -41,3 +41,4 @@ var partition = function(s) {
     backTracking(s, 0)
     return res
 };
+console.log(partition('aab',0));
