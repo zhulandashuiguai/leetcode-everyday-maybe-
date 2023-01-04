@@ -20,7 +20,7 @@ var permute = function(nums) {
             if (!tem.includes(nums[i])) {
                 tem.push(nums[i])
             } else {
-                continue
+                continue    
             }
 
             backTracking(nums)

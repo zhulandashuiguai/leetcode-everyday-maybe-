@@ -18,7 +18,7 @@
         let uset =new Set()  //这里去重是在每一层，加一个set，每次遍历判断是否出现过这个元素
         for(let i = startIndex;i<nums.length;i++){
             if(i>startIndex&&uset.has(nums[i])) continue  //如果用过就continue
-            if(nums[i]>=(tem.at(-1) ?? -Infinity)){  
+            if(nums[i]>=(tem.at(-1) ?? -Infinity)){   //空值合并运算符（??）当左侧的操作数为 null 或者 undefined 时，返回其右侧操作数，否则返回左侧操作数。
                 uset.add(nums[i])  //记录每层使用过的元素
                 tem.push(nums[i])
             }else{
