@@ -22,3 +22,20 @@ var findContentChildren = function(g, s) {
     }
     return num
 };
+
+// 第二次刷题
+var findContentChildren = function(g, s) {
+    let i = 0,j=0,res=0;
+    g.sort((a,b)=>a-b)
+    s.sort((a,b)=>a-b)
+    while(j<s.length){
+        if(s[j]>=g[i]){
+            res++
+            j++
+            i++
+        }else{
+            j++
+        }
+    }
+    return res
+};
