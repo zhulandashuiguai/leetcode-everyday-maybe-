@@ -12,7 +12,7 @@
 输出：true
 解释：可以先跳 1 步，从下标 0 到达下标 1, 然后再从下标 1 跳 3 步到达最后一个下标。
  */
-var canJump = function(nums) {
+var canJump = function (nums) {
     let len = nums.length
     let tem = [0]
     for (let i = 0; i < len; i++) {
@@ -20,31 +20,44 @@ var canJump = function(nums) {
         tem[i] = i + nums[i]
     }
     return true
-};
+}
+
 
 // 对上述进行优化：可以不用数组保存最大索引，只需要一个变量记录最大变量即可
-var canJump = function(nums) {
+var canJump = function (nums) {
     let len = nums.length
     let k = 0 //保存能跳到的最大索引
     for (let i = 0; i < len; i++) {
-        if (i > k) return false;
-        k = Math.max(k, i + nums[i]);
+        if (i > k) return false
+        k = Math.max(k, i + nums[i])
     }
     return true
-};
+}
 
 //另一种解法
 // 如果不存在为 0 的数，那么肯定能到达最后一个位置
 // 除最后一位外，如果 i 位置为 0，那么向前查找是否存在 j 位置使得 j + nums[j] > i
 // 最后一位是否为 0 不影响结果，所以不用判断
-var canJump = function(nums) {
-    let len = nums.length;
-    let pos = undefined;
+var canJump = function (nums) {
+    let len = nums.length
+    let pos = undefined
     for (let i = len - 2; i >= 0; i--) {
         if (nums[i] === 0 && pos === undefined)
-            pos = i;
+            pos = i
         if (pos !== undefined && i + nums[i] > pos)
             pos = undefined
     }
     return pos === undefined
-};
+}
+//
+var canJump = function (nums) {
+    if (nums.length === 1) return true
+    let cover = 0
+    for (let i = 0; i <= cover; i++) {
+        cover = Math.max(cover, i + nums[i])
+        if (cover >= nums.length - 1) {
+            return true
+        }
+    }
+    return false
+}
